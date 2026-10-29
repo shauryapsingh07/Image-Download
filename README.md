@@ -1,22 +1,22 @@
 # Image Downloader
 
-A PowerShell script that downloads images from direct image URLs or from all images on a web page. No dependencies; works with Windows PowerShell 5.1+.
+A Python script that downloads images from direct image URLs or from all images on a web page. Standard library only, so no `pip install` is needed (Python 3.8+).
 
 ## Usage
 
-```powershell
-.\Download-Images.ps1 -Url https://example.com/photo.jpg
-.\Download-Images.ps1 -Url https://example.com/gallery -OutDir .\pics -MinBytes 5000
-.\Download-Images.ps1 -ListFile urls.txt
+```bash
+python download_images.py https://example.com/photo.jpg
+python download_images.py https://example.com/gallery -o pics --min-bytes 5000
+python download_images.py -l urls.txt
 ```
 
-| Parameter | Description |
+| Option | Description |
 |---|---|
-| `-Url` | One or more image or page URLs |
-| `-ListFile` | Text file with one URL per line (`#` lines ignored) |
-| `-OutDir` | Output folder (default `.\images`) |
-| `-MinBytes` | Skip files smaller than this size |
-| `-TimeoutSec` | Per-request timeout (default 30) |
+| `urls` | One or more image or page URLs |
+| `-l`, `--list-file` | Text file with one URL per line (`#` lines ignored) |
+| `-o`, `--out-dir` | Output folder (default `images`) |
+| `--min-bytes` | Skip files smaller than this size |
+| `--timeout` | Per-request timeout in seconds (default 30) |
 
 ## Notes
 
